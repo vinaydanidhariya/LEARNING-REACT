@@ -13,6 +13,7 @@ class Sum extends React.Component {
   render() {
     return (
       <>
+        <br />
         <input
           type="number"
           name="input"
@@ -22,6 +23,8 @@ class Sum extends React.Component {
             });
           }}
         />
+        <br />
+
         <input
           type="number"
           name="input"
@@ -31,8 +34,12 @@ class Sum extends React.Component {
             });
           }}
         />
+        <br />
+
         <input type="button" value="sum" onClick={this.doSum.bind(this)} />
-        {"value is " + this.state.ans }
+        <br />
+
+        {"value is " + this.state.ans}
       </>
     );
   }

@@ -1,3 +1,14 @@
+THIS IS MY FIRST REACT APP IN WHICH I IMPLEMENT THIS TOPICS
+-CLASS COMPONENT
+-FUNCTION COMPONENT
+-HOOK
+-STATE
+-USESTAT
+-USEEFFECT
+-API CALL
+-BOOTSTRAP INTEGRATION THEME INTEGRATION
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

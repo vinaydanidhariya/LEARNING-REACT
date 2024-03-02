@@ -27,19 +27,8 @@ class Counter extends React.Component {
   }
 
   render() {
-    function increment(e) {
-      this.setState({
-        counter: this.state.counter + 1,
-      });
-    }
-    function decrement(e) {
-      this.setState({
-        counter: this.state.counter - 1,
-      });
-    }
     return (
       <>
-        state.counter
         <h2 style={{ padding: "50px" }}>COUNTER {this.state.counter}</h2>
         <input
           type="button"

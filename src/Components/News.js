@@ -8,7 +8,7 @@ class News extends React.Component {
   }
   componentDidMount() {
     fetch(
-      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=c22bb20da98b414ca8bcaeaa1d602973"
+      "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=c22bb20da98b414ca8bcaeaa1d602973"
     ).then((res) =>
       res.json().then((res) => {
         this.setState({ mydata: res.articles });

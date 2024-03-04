@@ -11,7 +11,7 @@
 ### BOOTSTRAP INTEGRATION THEME INTEGRATION
 
 ## DEMO AVAILABLE At
-[`https://vinaydanidhariya.github.io/LEARNING-REACT/`](DEMO LINK)
+[https://vinaydanidhariya.github.io/LEARNING-REACT/](DEMO LINK)
 ## Available Scripts
 
 ### `npm start`

@@ -14,6 +14,8 @@ import ModalLogin from "./ModalLogin";
 
 const Navigation = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [show, setShow] = useState(false);
+  
 
   return (
     <Navbar bg="primary" variant="dark" expand="md">
@@ -21,8 +23,7 @@ const Navigation = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Example />
-          {/* <ModalLogin show={modalShow} onHide={() => setModalShow(false)} /> */}
+          <ModalLogin show={modalShow} onHide={() => setModalShow(false)} />
           <Nav.Link  href="/home">
             Home
           </Nav.Link>
@@ -54,6 +55,7 @@ const Navigation = () => {
           >
             Login
           </Nav.Link>
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>

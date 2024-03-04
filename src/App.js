@@ -16,57 +16,25 @@ import Product from "./Components/Product";
 import Navigation from "./Components/Navigation";
 import { Container } from "react-bootstrap";
 import MovieTable from "./Components/MovieTable";
-import MovieAccordion from "./Components/MovieAccordion";
 import { useState, useEffect } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [err, setErr] = useState("");
-  const [errBool, setErrBool] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState([]);
-
-  // https://www.omdbapi.com/?i=tt3896198&apikey=95a7b651
-  let URL = `https://www.omdbapi.com/?s=${search}&page=2&apikey=95a7b651`;
-
-  const fetchMovies = (url) => {
-    fetch(url)
+  useEffect(() => {
+    fetch("https://www.omdbapi.com/?s=war&apikey=4a249f8d")
       .then((response) => response.json())
       .then((data) => {
-        
-        console.log(data);
-        setMovies(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setErr(err.message);
-        setErrBool(true);
-        setLoading(false);
+        console.log(data.Search);
+        setMovies(data.Search);
       });
-  };
- const handleSearch = (e) => {
-   let search = e.target.value;
-   setSearch(search);
- };
-
-  useEffect(() => {
-    fetchMovies(URL);
-  }, [URL]);
+  }, []);
 
   return (
     <>
       <Container>
         <Navigation />
-        <input
-          type="text"
-          placeholder="Search"
-          onChange={handleSearch}
-          style={{ width: "100%" }}
-        />
 
         <MovieTable movies={movies} />
-
-        {/* <MovieAccordion movies={movies} /> */}
       </Container>
       <Router>
         <h1>React Router</h1>

@@ -1,3 +1,4 @@
+import React from 'react';
 function MapDemo() {
   var list = [
     {
@@ -25,31 +26,30 @@ function MapDemo() {
       Age: 20,
     },
     {
-      name: "KSIHAn",
+      name: "KSIHAN",
       Age: 20,
     },
   ];
   return (
-    <>
-      <div style={{ Align: "center" }}>
-        <table
-          style={{ textAlign: "center" }}
-        >
-          {list.map((value, index, arr) => {
-            return (
-              <>
-                <tr>
-                  <td>
-                    {"NAME IS " + value.name}
-                    {" AGE IS " + value.Age}
-                  </td>
-                </tr>
-              </>
-            );
-          })}
-        </table>
-      </div>
-    </>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <table>
+                <tbody>
+                  {list.map((value, index, _arr) => {
+                    return (
+                      <React.Fragment key={index}>
+                        <tr>
+                          <td>
+                            {"NAME IS " + value.name}
+                            <br />
+                          </td>
+                          <td>{" AGE IS " + value.Age}</td>
+                        </tr>
+                      </React.Fragment>
+                    );
+                  })}
+                </tbody>
+      </table>
+    </div>
   );
 }
 

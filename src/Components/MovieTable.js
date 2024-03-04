@@ -1,51 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Container, Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const MovieTable = ({ movies }) => {
-  const keys = ["Actors", "Title", "Year", "Production"];
-
-  return (
-    <div style={{ width: "90%", margin: "0 auto" }}>
-      <h2 style={{ textAlign: "center", margin: "20px auto auto" }}>
-        Popular Movies for {new Date().toLocaleDateString()}
-      </h2>
-
-      <Table
-        variant="default"
-        style={{ width: "100%", margin: "20px auto" }}
-        striped
-        bordered
-        responsive
-      >
-        <thead>
-          <tr>
-            {keys.map((heading) => (
-              <th key={heading}>{heading}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {movies.map((movie) => (
-            <tr key={movie.imdbID}>
-              <td>{movie.Actors}</td>
-              <td>{movie.Title}</td>
-              <td>{movie.Year}</td>
-              <td>{movie.Production}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
-  );
-};
-
-const MovieSearch = () => {
-  const [movies, setMovies] = useState([]);
+const MovieTable = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [err, setErr] = useState("");
   const [errBool, setErrBool] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetchMovies("https://www.omdbapi.com/?s=war&apikey=4a249f8d");
+  }, []);
   const fetchMovies = (url) => {
     setLoading(true);
     fetch(url)
@@ -77,22 +42,47 @@ const MovieSearch = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search for a movie..."
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-        <button type="submit">Search</button>
-      </form>
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search for a movie..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+          <button type="submit">Search</button>
+        </form>
 
-      {loading && <p>Loading...</p>}
-      {errBool && <p>Error: {err}</p>}
-      {movies.length > 0 && <MovieTable movies={movies} />}
-    </div>
+        {loading && <p>Loading...</p>}
+        {errBool && <p>Error: {err}</p>}
+      </div>
+      <div style={{ width: "90%", margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", margin: "20px auto auto" }}>
+          List of Movies
+        </h2>
+
+        <Container>
+          <div className="row">
+            {movies.map((movie) => (
+              <>
+                <div className="col-md-4">
+                  <Card style={{ width: "18rem" }}>
+                    <Card.Img variant="top" src={movie.Poster} />
+                    <Card.Body>
+                      <Card.Title>{movie.Title}</Card.Title>
+                      <Card.Text>IMBD ID {movie.imdbID}</Card.Text>
+                      <Card.Text>Released In {movie.Year}</Card.Text>
+                      <Button variant="primary">More</Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </>
+            ))}
+          </div>
+        </Container>
+      </div>
+    </>
   );
 };
-
-export default MovieSearch;
+export default MovieTable;

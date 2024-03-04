@@ -10,8 +10,10 @@
 ### API CALL
 ### BOOTSTRAP INTEGRATION THEME INTEGRATION
 
-## DEMO AVAILABLE At
-[https://vinaydanidhariya.github.io/LEARNING-REACT/](DEMO LINK)
+## Demo Link
+You can check out the live demo of the application at the following link:
+
+[DEMO LINK](https://vinaydanidhariya.github.io/LEARNING-REACT/)
 ## Available Scripts
 
 ### `npm start`

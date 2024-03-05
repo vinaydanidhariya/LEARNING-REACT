@@ -37,23 +37,36 @@ render() {
             <h1>Product</h1>
             <Row>
                 {this.state.Prodcts.map((product, index) => {
+                      const images = product.images.map((image) =>
+                        image.replace(/[\[\]"]+/g, '')
+                      );
+                      // Extract the first image URL
+                      const firstImageUrl = images[0];
                     return (
-                        <Col md={4} key={index}>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={product.images[0]} alt={product.title} />
-                                <Card.Body>
-                                    <Card.Title>{product.title}</Card.Title>
-                                    <Card.Text>{product.description}</Card.Text>
-                                    <Button variant="primary" as={Link} to={`/product/${product.id}`}>
-                                        View Details
-                                    </Button>
-                                    <Button variant="secondary" as={Link} to="#">
-                                        Add To Cart
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                );
+                      <Col md={4} key={index}>
+                        <Card style={{ width: "18rem" }}>
+                          <Card.Img
+                            variant="top"
+                            src={firstImageUrl}
+                            alt={product.title}
+                          />
+                          <Card.Body>
+                            <Card.Title>{product.title}</Card.Title>
+                            <Card.Text>{product.description}</Card.Text>
+                            <Button
+                              variant="primary"
+                              as={Link}
+                              to={`/product/${product.id}`}
+                            >
+                              View Details
+                            </Button>
+                            <Button variant="secondary" as={Link} to="#">
+                              Add To Cart
+                            </Button>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    );
                 })}
             </Row>
         </Container>

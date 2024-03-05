@@ -2,60 +2,61 @@ import React, { useState } from "react";
 import {
   Navbar,
   Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
+  NavDropdown
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-import Example from "./Example";
+import { NavLink } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 
 const Navigation = () => {
   const [modalShow, setModalShow] = useState(false);
-  const [show, setShow] = useState(false);
-  
 
   return (
-    <Navbar bg="primary" variant="dark" expand="md">
-      <Navbar.Brand href="#home">Movies-App</Navbar.Brand>
+    <Navbar bg="primary" variant="dark"  expand="md">
+      <Navbar.Brand as={NavLink} to="/home">
+        Movies-App
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <ModalLogin show={modalShow} onHide={() => setModalShow(false)} />
-          <Nav.Link  href="/home">
+          <Nav.Link as={NavLink} to="/home">
             Home
           </Nav.Link>
-          <Nav.Link  href="/about">
+          <Nav.Link as={NavLink} to="/about">
             About
           </Nav.Link>
-          <Nav.Link  href="/contact">
+          <Nav.Link as={NavLink} to="/contact">
             Contact
           </Nav.Link>
-          <Nav.Link  href="/project">
+          <Nav.Link as={NavLink} to="/project">
             Project
           </Nav.Link>
-
-          <NavDropdown title="Sample Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
+          <NavDropdown title="Programs" id="basic-nav-dropdown">
+            <NavDropdown.Item as={NavLink} to="/hooksum">
+              Sum Using Hook
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
+            <NavDropdown.Item as={NavLink} to="/mapdemo">
+              Map Demo
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/news">
+              News
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/result">
+              Result
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/counter">
+              Counter
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/sumdemo">
+              Sum Demo
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/product">
+              Product
+            </NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/movies">
+              Movies Search
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link
-            variant="transparent"
-            style={{ width: "50px" }}
-            onClick={() => setModalShow(true)}
-          >
-            Login
-          </Nav.Link>
-
+          <ModalLogin show={modalShow} onHide={() => setModalShow(false)} />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

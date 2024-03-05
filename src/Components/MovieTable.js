@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Container, Button, Card } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  CardForm,
+  FormControl,
+  Form,
+  Card,
+  Row,
+  Col,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const MovieTable = () => {
@@ -43,17 +52,35 @@ const MovieTable = () => {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search for a movie..."
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-          <button type="submit">Search</button>
-        </form>
-
+      <div
+        className="row"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <Form onSubmit={handleSubmit}>
+          <Form.Group
+            as={Row}
+            className="m-3 "
+            controlId="formPlaintextPassword"
+          >
+            <div className="col-md-8">
+              <FormControl
+                column
+                sm="4"
+                type="text"
+                placeholder="Search for a movie..."
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </div>
+            <div className="col-md-4">
+              <Col sm="6">
+                <Button variant="primary" type="submit">
+                  Search
+                </Button>
+              </Col>
+            </div>
+          </Form.Group>
+        </Form>
         {loading && <p>Loading...</p>}
         {errBool && <p>Error: {err}</p>}
       </div>
@@ -66,8 +93,11 @@ const MovieTable = () => {
           <div className="row">
             {movies.map((movie) => (
               <>
-                <div className="col-md-4">
-                  <Card style={{ width: "18rem" }}>
+                <div className="col-md-4 mb-2">
+                  <Card
+                    style={{ width: "18rem" }}
+                    className="square border border-dark"
+                  >
                     <Card.Img variant="top" src={movie.Poster} />
                     <Card.Body>
                       <Card.Title>{movie.Title}</Card.Title>

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/LEARNING-REACT/static/css/main.a347d0d4.css",
-    "main.js": "/LEARNING-REACT/static/js/main.2d3b27ed.js",
+    "main.js": "/LEARNING-REACT/static/js/main.01f12890.js",
     "static/js/453.b12a1191.chunk.js": "/LEARNING-REACT/static/js/453.b12a1191.chunk.js",
     "index.html": "/LEARNING-REACT/index.html",
     "main.a347d0d4.css.map": "/LEARNING-REACT/static/css/main.a347d0d4.css.map",
-    "main.2d3b27ed.js.map": "/LEARNING-REACT/static/js/main.2d3b27ed.js.map",
+    "main.01f12890.js.map": "/LEARNING-REACT/static/js/main.01f12890.js.map",
     "453.b12a1191.chunk.js.map": "/LEARNING-REACT/static/js/453.b12a1191.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a347d0d4.css",
-    "static/js/main.2d3b27ed.js"
+    "static/js/main.01f12890.js"
   ]
 }

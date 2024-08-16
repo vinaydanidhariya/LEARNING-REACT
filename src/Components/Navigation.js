@@ -56,9 +56,13 @@ const Navigation = () => {
               Movies Search
             </NavDropdown.Item>
           </NavDropdown>
+          <NavDropdown.Item as={NavLink} to="/slider">
+              Slider
+            </NavDropdown.Item>
           <ModalLogin show={modalShow} onHide={() => setModalShow(false)} />
         </Nav>
       </Navbar.Collapse>
+     
     </Navbar>
   );
 };

@@ -15,6 +15,7 @@ import Sum from "./Sum";
 import NoPage from "./NoPage";
 import { Routes } from "react-router-dom";
 import MovieTable from "./Components/MovieTable";
+import Coursal from "./Components/Carousel";
 
 const RoutesNav = () => (
   <Routes>
@@ -33,6 +34,10 @@ const RoutesNav = () => (
     <Route path="/sumdemo" element={<Sum />} />
     <Route path="/movies" element={<MovieTable />} />
     <Route path="*" element={<NoPage />} />
+
+
+    {/* new Learning */}
+    <Route path="/slider" element={<Coursal/>}/>
   </Routes>
 );
 

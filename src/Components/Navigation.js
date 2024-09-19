@@ -11,7 +11,7 @@ const Navigation = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <Navbar bg="primary" variant="dark"  expand="md">
+    <Navbar bg="primary" variant="dark" expand="md">
       <Navbar.Brand as={NavLink} to="/home">
         Movies-App
       </Navbar.Brand>
@@ -57,12 +57,15 @@ const Navigation = () => {
             </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown.Item as={NavLink} to="/slider">
-              Slider
-            </NavDropdown.Item>
+            Slider
+          </NavDropdown.Item>
+          <NavDropdown.Item as={NavLink} to="/calculator">
+            Calculator
+          </NavDropdown.Item>
           <ModalLogin show={modalShow} onHide={() => setModalShow(false)} />
         </Nav>
       </Navbar.Collapse>
-     
+
     </Navbar>
   );
 };

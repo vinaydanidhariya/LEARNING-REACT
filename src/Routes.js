@@ -16,6 +16,8 @@ import NoPage from "./NoPage";
 import { Routes } from "react-router-dom";
 import MovieTable from "./Components/MovieTable";
 import Coursal from "./Components/Carousel";
+import Calculator from "./Components/Calculator";
+
 
 const RoutesNav = () => (
   <Routes>
@@ -33,6 +35,8 @@ const RoutesNav = () => (
     <Route path="/counter" element={<Counter />} />
     <Route path="/sumdemo" element={<Sum />} />
     <Route path="/movies" element={<MovieTable />} />
+    <Route path="/calculator" element={<Calculator />} />
+
     <Route path="*" element={<NoPage />} />
 
 
